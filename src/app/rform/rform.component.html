@@ -1,0 +1,128 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+   
+              <h1 style="color: darkred;" class="mb-5">REGISTRATION FORM With REACTIVE  TEMPLATE</h1>
+
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row mb-4">
+                  <div class="col">
+                    <div class="form-outline">
+
+
+                      <input type="text" id="firstname" name="firstname" class="form-control" formControlName="firstname" />
+
+
+                      <label class="form-label" for="form3Example1">First name</label>
+                    </div>
+                  </div>
+
+
+                  <div class="col">
+                    <div class="form-outline">
+
+
+                      <input type="text" id="lastname" name="lastname" class="form-control" formControlName="lastname" />
+
+
+                      <label class="form-label" for="form3Example2">Last name</label>
+                    </div>
+                  </div>
+                </div>
+              
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+
+
+                  <input type="email" id="email" name="email" class="form-control" formControlName="email" />
+
+
+                  <label class="form-label" for="form3Example3">Email address</label>
+                </div>
+              
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+
+
+                  <input type="password" id="password" name="password" class="form-control" formControlName="password" />
+
+
+                  <label class="form-label" for="form3Example4">Password</label>
+                </div>
+
+
+
+              <!-- choose fielde..... -->
+               <div class="col-12 mb-5">
+               <label for="inlineFormSelectPref">choose fees structure:</label>
+                <select class="select" id="selvalue" name="selvalue" formControlName="selvalue">
+                    <option value="10000">Rs.10000/-</option>
+                    <option value="20000">Rs.20000/-</option>
+                    <option value="30000">Rs.30000/-</option>
+                    <option value="35000">Rs.35000/-</option>
+                    <option value="40000">Rs.40000/-</option>
+      
+                 </select>
+              </div> 
+
+              <!-- cheack box..................... -->
+               <h4>Choose languange: </h4>
+           <div name="chkval" formGroupName="chkval">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"  id="chkval1" name="chkval1" formControlName="chkval1">
+                <label class="form-check-label" for="flexCheckDefault">
+                    JAVA
+                </label>
+              </div>
+
+              <div class="form-check">
+                 <input class="form-check-input" type="checkbox"  id="chkval2" name="chkval2" formControlName="chkval2"> 
+                
+                <label class="form-check-label" for="flexCheckChecked">
+                    JAVASCRIPT
+                </label>
+              </div>
+
+              <div class="form-check mb-5">
+                <input class="form-check-input" type="checkbox"  id="chkval3" name="chkval3" value="chkval3" formControlName="chkval3">
+                <label class="form-check-label" for="flexCheckChecked">
+                    HTML/CSS
+                </label>
+              </div>
+
+            </div>
+
+              
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">SUBMIT</button>
+            
+              </form>
+
+
+        </div>
+    </div>
+</div>
+
+ <table>
+    <tr>
+        <th>no.</th>
+        <th>NAME.</th>
+        <th>email.</th>
+        <th>password.</th>
+        <th>fees.</th>
+        <th>check value</th>
+        
+    </tr>
+    <tr *ngFor="let c of user;let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{c.firstname}} {{c.lastname}}</td>
+        <td>{{c.email}}</td>
+        <td>{{c.password}}</td>
+        <td>{{c.selvalue}}</td>
+        <td>{{c.chkval[0]}}{{c.chkval[1]}}{{c.chkval[2]}}</td>
+        
+    </tr>
+</table> 
